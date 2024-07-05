@@ -1,0 +1,140 @@
+<?xml version="1.0" ?>
+<robot name="ROBOT-URDF" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find ROBOT-URDF_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find ROBOT-URDF_description)/urdf/ROBOT-URDF.trans" />
+<xacro:include filename="$(find ROBOT-URDF_description)/urdf/ROBOT-URDF.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.35 0.3500000000000001 0.01329820078764838" rpy="0 0 0"/>
+    <mass value="19.48807099803493"/>
+    <inertia ixx="1.261972" iyy="1.374146" izz="2.632119" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROBOT-URDF_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROBOT-URDF_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Wheel_1">
+  <inertial>
+    <origin xyz="2.8255175976710234e-14 -0.018918918918918916 -4.163336342344337e-17" rpy="0 0 0"/>
+    <mass value="3.649902344940618"/>
+    <inertia ixx="0.003839" iyy="0.006397" izz="0.003839" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.125 -0.04 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROBOT-URDF_description/meshes/Wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.125 -0.04 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROBOT-URDF_description/meshes/Wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Wheel_2">
+  <inertial>
+    <origin xyz="2.8310687127941492e-14 -0.018918918918918923 -4.163336342344337e-17" rpy="0 0 0"/>
+    <mass value="3.649902344940618"/>
+    <inertia ixx="0.003839" iyy="0.006397" izz="0.003839" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.575 -0.04 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROBOT-URDF_description/meshes/Wheel_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.575 -0.04 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROBOT-URDF_description/meshes/Wheel_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Wheel_4">
+  <inertial>
+    <origin xyz="2.839395385478838e-14 0.018918918918918837 2.7755575615628914e-17" rpy="0 0 0"/>
+    <mass value="3.649902344940618"/>
+    <inertia ixx="0.003839" iyy="0.006397" izz="0.003839" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.125 -0.66 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROBOT-URDF_description/meshes/Wheel_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.125 -0.66 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROBOT-URDF_description/meshes/Wheel_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Wheel_3">
+  <inertial>
+    <origin xyz="2.8310687127941492e-14 0.018918918918918837 2.7755575615628914e-17" rpy="0 0 0"/>
+    <mass value="3.649902344940618"/>
+    <inertia ixx="0.003839" iyy="0.006397" izz="0.003839" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.575 -0.66 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROBOT-URDF_description/meshes/Wheel_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.575 -0.66 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ROBOT-URDF_description/meshes/Wheel_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="旋转 1" type="continuous">
+  <origin xyz="0.125 0.04 0.035" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="旋转 2" type="continuous">
+  <origin xyz="0.575 0.04 0.035" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Wheel_2"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="旋转 3" type="continuous">
+  <origin xyz="0.125 0.66 0.035" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Wheel_4"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="旋转 4" type="continuous">
+  <origin xyz="0.575 0.66 0.035" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Wheel_3"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+</robot>
